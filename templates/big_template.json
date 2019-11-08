@@ -1,0 +1,851 @@
+{
+  "apiVersion": "v1",
+  "kind": "Template",
+  "metadata": {
+    "name": "smallapp"
+  },
+  "objects": [
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "name": "hellopod-pvc1"
+      },
+      "spec": {
+        "storageClassName": "${STORAGE_CLASS}",
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "name": "hellopod-pvc2"
+      },
+      "spec": {
+        "storageClassName": "${STORAGE_CLASS}",
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "name": "hellopod-pvc3"
+      },
+      "spec": {
+        "storageClassName": "${STORAGE_CLASS}",
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "name": "hellopod-pvc4"
+      },
+      "spec": {
+        "storageClassName": "${STORAGE_CLASS}",
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "name": "hellopod-pvc5"
+      },
+      "spec": {
+        "storageClassName": "${STORAGE_CLASS}",
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "name": "hellopod-pvc6"
+      },
+      "spec": {
+        "storageClassName": "${STORAGE_CLASS}",
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "name": "hellopod-pvc7"
+      },
+      "spec": {
+        "storageClassName": "${STORAGE_CLASS}",
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "name": "hellopod-pvc8"
+      },
+      "spec": {
+        "storageClassName": "${STORAGE_CLASS}",
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "name": "hellopod-pvc9"
+      },
+      "spec": {
+        "storageClassName": "${STORAGE_CLASS}",
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+    {
+      "apiVersion": "v1",
+      "kind": "PersistentVolumeClaim",
+      "metadata": {
+        "name": "hellopod-pvc10"
+      },
+      "spec": {
+        "storageClassName": "${STORAGE_CLASS}",
+        "accessModes": [
+          "ReadWriteMany"
+        ],
+        "resources": {
+          "requests": {
+            "storage": "${VOLUME_CAPACITY}"
+          }
+        }
+      }
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-openshift1",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift1"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-openshift1",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "hellovolume1",
+                "mountPath": "/hellovolume1"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "hellovolume1",
+            "persistentVolumeClaim": {
+              "claimName": "hellopod-pvc1"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-openshift2",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift2"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-openshift2",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "hellovolume2",
+                "mountPath": "/hellovolume2"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "hellovolume2",
+            "persistentVolumeClaim": {
+              "claimName": "hellopod-pvc2"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-openshift3",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift3"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-openshift3",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "hellovolume3",
+                "mountPath": "/hellovolume3"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "hellovolume3",
+            "persistentVolumeClaim": {
+              "claimName": "hellopod-pvc3"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-openshift4",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift4"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-openshift4",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "hellovolume4",
+                "mountPath": "/hellovolume4"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "hellovolume4",
+            "persistentVolumeClaim": {
+              "claimName": "hellopod-pvc4"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-openshift5",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift5"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-openshift5",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "hellovolume5",
+                "mountPath": "/hellovolume5"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "hellovolume5",
+            "persistentVolumeClaim": {
+              "claimName": "hellopod-pvc5"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-openshift6",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift6"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-openshift6",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "hellovolume6",
+                "mountPath": "/hellovolume6"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "hellovolume6",
+            "persistentVolumeClaim": {
+              "claimName": "hellopod-pvc6"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-openshift7",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift7"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-openshift",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "hellovolume7",
+                "mountPath": "/hellovolume7"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "hellovolume7",
+            "persistentVolumeClaim": {
+              "claimName": "hellopod-pvc7"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-openshift8",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift8"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-openshift8",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "hellovolume8",
+                "mountPath": "/hellovolume8"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "hellovolume8",
+            "persistentVolumeClaim": {
+              "claimName": "hellopod-pvc8"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-openshift9",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift9"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-openshift9",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "hellovolume9",
+                "mountPath": "/hellovolume9"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "hellovolume9",
+            "persistentVolumeClaim": {
+              "claimName": "hellopod-pvc9"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    },
+    {
+      "kind": "Pod",
+      "apiVersion": "v1",
+      "metadata": {
+        "name": "hello-openshift10",
+        "creationTimestamp": null,
+        "labels": {
+          "name": "hello-openshift10"
+        }
+      },
+      "spec": {
+        "containers": [
+          {
+            "name": "hello-openshift10",
+            "image": "openshift/hello-openshift",
+            "ports": [
+              {
+                "containerPort": 8080,
+                "protocol": "TCP"
+              }
+            ],
+            "resources": {},
+            "volumeMounts": [
+              {
+                "name": "hellovolume10",
+                "mountPath": "/hellovolume10"
+              }
+            ],
+            "terminationMessagePath": "/dev/termination-log",
+            "imagePullPolicy": "IfNotPresent",
+            "capabilities": {},
+            "securityContext": {
+              "capabilities": {},
+              "privileged": false
+            }
+          }
+        ],
+        "volumes": [
+          {
+            "name": "hellovolume10",
+            "persistentVolumeClaim": {
+              "claimName": "hellopod-pvc10"
+            }
+          }
+        ],
+        "restartPolicy": "Always",
+        "dnsPolicy": "ClusterFirst",
+        "serviceAccount": ""
+      },
+      "status": {}
+    },
+    {
+      "apiVersion": "batch/v1",
+      "kind": "Job",
+      "metadata": {
+        "name": "dataseed"
+      },
+      "spec": {
+        "template": {
+          "spec": {
+            "restartPolicy": "Never",
+            "containers": [
+              {
+                "name": "dataseed",
+                "image": "docker.io/ademicev/bigapp",
+                "env": [
+                  {
+                    "name": "VOLUME_CAPACITY",
+                    "value": "${VOLUME_CAPACITY}"
+                  }
+                ],
+                "volumeMounts": [
+                  {
+                    "name": "hellovolume1",
+                    "mountPath": "/hellovolume1"
+                  },
+                  {
+                    "name": "hellovolume2",
+                    "mountPath": "/hellovolume2"
+                  },
+                  {
+                    "name": "hellovolume3",
+                    "mountPath": "/hellovolume3"
+                  },
+                  {
+                    "name": "hellovolume4",
+                    "mountPath": "/hellovolume4"
+                  },
+                  {
+                    "name": "hellovolume5",
+                    "mountPath": "/hellovolume5"
+                  },
+                  {
+                    "name": "hellovolume6",
+                    "mountPath": "/hellovolume6"
+                  },
+                  {
+                    "name": "hellovolume7",
+                    "mountPath": "/hellovolume7"
+                  },
+                  {
+                    "name": "hellovolume8",
+                    "mountPath": "/hellovolume8"
+                  },
+                  {
+                    "name": "hellovolume9",
+                    "mountPath": "/hellovolume9"
+                  },
+                  {
+                    "name": "hellovolume10",
+                    "mountPath": "/hellovolume10"
+                  },
+                  {
+                    "name": "scriptdir",
+                    "mountPath": "/scriptdir"
+                  }
+                ]
+              }
+            ],
+            "volumes": [
+              {
+                "name": "hellovolume1",
+                "persistentVolumeClaim": {
+                  "claimName": "hellopod-pvc1"
+                }
+              },
+              {
+                "name": "hellovolume2",
+                "persistentVolumeClaim": {
+                  "claimName": "hellopod-pvc2"
+                }
+              },
+              {
+                "name": "hellovolume3",
+                "persistentVolumeClaim": {
+                  "claimName": "hellopod-pvc3"
+                }
+              },
+              {
+                "name": "hellovolume4",
+                "persistentVolumeClaim": {
+                  "claimName": "hellopod-pvc4"
+                }
+              },
+              {
+                "name": "hellovolume5",
+                "persistentVolumeClaim": {
+                  "claimName": "hellopod-pvc5"
+                }
+              },
+              {
+                "name": "hellovolume6",
+                "persistentVolumeClaim": {
+                  "claimName": "hellopod-pvc6"
+                }
+              },
+              {
+                "name": "hellovolume7",
+                "persistentVolumeClaim": {
+                  "claimName": "hellopod-pvc7"
+                }
+              },
+              {
+                "name": "hellovolume8",
+                "persistentVolumeClaim": {
+                  "claimName": "hellopod-pvc8"
+                }
+              },
+              {
+                "name": "hellovolume9",
+                "persistentVolumeClaim": {
+                  "claimName": "hellopod-pvc9"
+                }
+              },
+              {
+                "name": "hellovolume10",
+                "persistentVolumeClaim": {
+                  "claimName": "hellopod-pvc10"
+                }
+              },
+              {
+                "name": "scriptdir",
+                "emptyDir": {}
+              }
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "parameters": [
+    {
+      "description": "Volume space available for data",
+      "displayName": "Volume Capacity",
+      "name": "VOLUME_CAPACITY",
+      "required": true
+    },
+    {
+      "description": "Storage class name for PVC",
+      "displayName": "Storage Class",
+      "name": "STORAGE_CLASS",
+      "required": false
+    }
+  ]
+}
