@@ -12,8 +12,8 @@ for i in range(1, 11):
 
     volume_size = os.getenv("VOLUME_CAPACITY")
     sizes = {
-        "1Gi": 1073741824,
-        "10Gi": 10737418240,
+        "2Gi": 1073741824,
+        "11Gi": 10737418240,
     }
 
     if volume_size not in sizes.keys():

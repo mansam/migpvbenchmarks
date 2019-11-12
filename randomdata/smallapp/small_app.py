@@ -11,11 +11,11 @@ if len(files_in_volume) > 0:
 
 volume_size = os.getenv("VOLUME_CAPACITY")
 sizes = {
-    "50Mi": None,
-    "1Gi": 1073741824,
-    "10Gi": 10737418240,
-    "100Gi": 107374182400,
-    "1Ti": 1099511627776
+    "60Mi": None,
+    "2Gi": 1073741824,
+    "12Gi": 10737418240,
+    "115Gi": 107374182400,
+    "1120Gi": 1099511627776
 }
 
 # filter invalid volume sizes
