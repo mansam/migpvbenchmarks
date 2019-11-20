@@ -54,6 +54,10 @@ Deletes a namespace created by `./create_big_scenario.sh`
 
 `TODO`
 
+#### Example
+
+`oc logs controller-manager-7c9565c55d-74pln | ./parse_logs.py mig-pv-benchmark-small-glusterfs-storage-60mi`
+
 ## Seed scripts
 
 The following seed scripts are used automatically as part of deploying the scenario pods, and do not need to be run directly.
