@@ -23,11 +23,10 @@ if __name__ == "__main__":
             if (ensure_stage_pods_deleted == None) and ("EnsureStagePodsDeleted" in line):
                 ensure_stage_pods_deleted = line
         if ensure_stage_backup and ensure_stage_pods_deleted:
-            break
-
-    if ensure_stage_backup and ensure_stage_pods_deleted:
-        ensure_stage_backup = json.loads(ensure_stage_backup)
-        ensure_stage_pods_deleted = json.loads(ensure_stage_pods_deleted)
-        print(ensure_stage_pods_deleted["ts"] - ensure_stage_backup["ts"])
-    else:
-        print("didn't find EnsureStageBackup and EnsureStagePodsDeleted log messages for {}".format(args.namespace))
+            ensure_stage_backup = json.loads(ensure_stage_backup)
+            ensure_stage_pods_deleted = json.loads(ensure_stage_pods_deleted)
+            print(str(ensure_stage_pods_deleted["ts"]) + " " + str(ensure_stage_backup["ts"]))
+            print(ensure_stage_pods_deleted["ts"] - ensure_stage_backup["ts"])
+            # reset markers so we can find the next migration
+            ensure_stage_backup = None
+            ensure_stage_pods_deleted = None

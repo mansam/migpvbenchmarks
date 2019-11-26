@@ -45,7 +45,6 @@ do
 			;;
 		--stage)
 			STAGE="true"
-			shift
 			;;
 		*) break;;
 	esac
